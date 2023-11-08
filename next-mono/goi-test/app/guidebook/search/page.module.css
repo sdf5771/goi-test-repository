@@ -1,0 +1,20 @@
+.search_result_box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 100px);
+}
+.result_count_text{
+    font-weight: 600;
+}
+.list_container{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+    overflow: auto;
+}
+.list_element{
+    margin-left: 20px;
+}

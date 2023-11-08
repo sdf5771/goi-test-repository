@@ -4,7 +4,7 @@ type Targs = {
 }
 
 async function getSearchResult({searchKeyword, pageParam}: Targs){
-    const response = await fetch(`https://dev-api.goifuneral.co.kr/articles/search/?page=${pageParam}?query=${searchKeyword}`, 
+    const response = await fetch(`https://dev-api.goifuneral.co.kr/articles/search/?page=${pageParam}&query=${searchKeyword}`, 
     {
         method: 'GET',
         headers: {
