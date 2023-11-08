@@ -1,0 +1,13 @@
+{
+  "name": "next-mono",
+  "version": "1.0.0",
+  "description": "next-mono",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:goi-test": "cd goi-test && yarn dev",
+    "dev:next-default": "cd next-default && yarn dev"
+  },
+  "author": "seobisback",
+  "license": "MIT"
+}
