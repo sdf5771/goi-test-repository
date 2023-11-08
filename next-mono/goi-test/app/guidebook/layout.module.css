@@ -1,0 +1,28 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input_box{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 10px;
+    background-color: #F5F5F4;
+    border-radius: 8px;
+}
+.input_box > input{
+    width: 100%;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+}
