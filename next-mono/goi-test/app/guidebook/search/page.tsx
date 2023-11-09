@@ -6,6 +6,7 @@ import useInfiniteScroll from '@/app/hooks/useInfiniteScroll';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import getSearchResult from '@/app/queries/getSearchResult';
 import { useRouter } from 'next/navigation';
+import SearchDataElement from '@/components/SearchDataElement';
 
 type TsearchResult = {category: string, date: string, index: string, tag: string, title: string, type: string}
 
@@ -64,10 +65,12 @@ export default function Page(){
             <ul className={styles.list_container}>
                 {searchDatas ? searchDatas.map((searchData: TsearchResult, index: number) => {
                     return (
-                        <li key={`${searchData.title} ${searchData.index}`} className={styles.list_element}>
-                            <h2>{searchData.title}</h2>
-                            <span>{`(${searchData.tag} / ${searchData.date})`}</span>
-                        </li>
+                        <SearchDataElement 
+                            key={`${searchData.title} ${searchData.index}`} 
+                            title={searchData.title}
+                            tag={searchData.tag}
+                            date={searchData.date}
+                        />
                     )
                 }) : null}
                 <div ref={bottomEle}></div>
