@@ -1,6 +1,12 @@
 # goi-test-repository
 dev.김섭우
 
+# 사용한 툴
+
+- Visual Studio Code - 코드 에디터
+- Github Desktop - 깃 리포지토리 관리
+- SourceTree - 깃 리포지토리 관리 및 브랜치 병합에 사용
+
 # 1번 과제
 
 # 2번 과제
