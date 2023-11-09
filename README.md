@@ -53,7 +53,7 @@ dev.김섭우
     
     - [http://localhost:3000/guidebook/search?keyword=장례](http://localhost:3000/guidebook/search?keyword=%EC%9E%A5%EB%A1%80)
     
-    ![Untitled](./readme-assets/3_1.png)
+    ![Untitled](./readme-assets/3_3.png)
     
     - @tanstack/react-query - useInfiniteQuery
         - goi-test-repository/next-mono/goi-test/app/guidebook/search/page.tsx
