@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "companyname": "A병원장례식장",
+      "managed_type": "대학병원",
+      "address": "서울특별시 송파구"
+    },
+    {
+      "id": 2,
+      "companyname": "B병원장례식장",
+      "managed_type": "공설",
+      "address": "서울특별시 구로구"
+    },
+    {
+      "id": 3,
+      "companyname": "C장례식장",
+      "managed_type": "전문",
+      "address": "서울특별시 성북구"
+    },
+    {
+      "id": 4,
+      "companyname": "D병원장례식장",
+      "managed_type": "대학병원",
+      "address": "서울특별시 강동구"
+    },
+    {
+      "id": 5,
+      "companyname": "E장례식장",
+      "managed_type": "전문",
+      "address": "서울특별시 강서구"
+    }
+  ]
