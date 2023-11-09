@@ -16,10 +16,6 @@ dev.김섭우
 > 동적으로 1부터 99까지의 순우리말과 한자어를 만들기 위해 고민하는 등 재미있는 경험이였습니다.
 > 
 
-### 결과
-
-![Untitled](./readme-assets/1_1.gif)
-
 ### 실행
 
 - path: goi-test-repository/py-server
