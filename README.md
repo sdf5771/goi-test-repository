@@ -11,6 +11,142 @@ dev.김섭우
 
 # 2번 과제
 
+### memoir
+
+> Bun js 는 node js 를 대체할 Javascript 런타임으로 각광 받는 맥가이버와 같은 신생 런타임이라고 듣고는 있었습니다만, 
+> 처음 사용해보았지만 과제를 위해 Docs를 읽거나 현황에 대해 조사하는건 재미있는 경험이였습니다.
+> 
+
+### 실행
+
+- path : **goi-test-repository/bun-file**
+
+```tsx
+// 실행
+bun run dev // 과제 프로젝트 실행
+
+```
+
+### Result
+
+![Untitled](./readme-assets/2_1.png)
+
+- 과제 1) bun을 설치 후 init 명령어로 프로젝트를 생성해주세요. (완료)
+- 과제 2) **package.json의 script 설정**으로 터미널에 **bun dev**를 입력했을 시, index.ts 파일을 실행시키게 해주세요. (완료)
+    - Bun js 공식 Docs에 명시된 대로 Bun js는 HMR(Hot Module Reload)을 지원하고 nodemon을 사용할 필요없이 간단한 스크립트 작성으로 리로드 해주었습니다.
+    - 참고한 Docs : https://bun.sh/docs/runtime/hot
+    - bun-file/package.json
+    
+    ```tsx
+    {
+      "name": "bun-file",
+      "module": "index.ts",
+      "type": "module",
+      "scripts":{
+        "dev": "bun --watch index.ts"
+      },
+      "devDependencies": {
+        "bun-types": "latest"
+      },
+      "peerDependencies": {
+        "typescript": "^5.0.0"
+      }
+    }
+    ```
+    
+- 과제 3) 아래 코드부터 **bun init으로 만든 프로젝트**의 **index.ts**에 붙여 넣으신 후 “이곳에 작성해주세요.”를 안내에 따라 채워주세요. (완료)
+    - bun-file/index.ts
+    
+    ```tsx
+    import { getFiles } from "./utils/getFiles";
+    console.log("Start");
+    
+    // 1. bun으로 파일 읽기
+    // 제공해드린 test-parlors.json를
+    // Bun의 메서드를 사용해 읽어주고, 변수에 선언해주세요.
+    
+    const path = "./constants/test-parlors.json";
+    // 이곳에 작성해주세요.
+    let originalFile = Bun.file(path);
+    
+    // 2. 파일 존재 여부 확인
+    // Bun의 파일 메서드를 활용해서, 1에서 선언된 변수 내
+    // 파일이 없으면 콘솔에 "파일이 없습니다."라는 에러를 띄워주세요.
+    
+    // 이곳에 작성해주세요.
+    if(originalFile.size === 0){
+        console.log('파일이 없습니다.')
+    }
+    
+    // 3. JSON 파일 읽기
+    // Bun의 파일 메서드를 사용해, 1에서 선언된 변수에 JSON을 자바스크립트의 자료구조로 파싱해주세요.
+    
+    // 이곳에 작성해주세요.
+    const fileList = await originalFile.json()
+    
+    // 4. 개별 json 저장
+    // 3에서 불러온 test-parlors.json의 자바스크립트 자료구조 값들을
+    // 반복문, map 메서드 등을 통해, Bun의 파일 메서드를 사용해 개별 파일로 
+    // parlors 디렉토리에 저장해주세요.
+    // 이때 개별 json의 결과로는 
+    // {
+    //   "장례식장 타입" : {기존 test-parlors.json의 managed_type의 값},
+    //   "주소" : {기존 test-parlors.json의 address의 값}
+    // } 
+    // 와 같이 한글이름의 키값과 기존 결과를 지정해주시고,
+    // 개별 json의 파일명은, 기존 test-parlors.json의 companyname의 값으로 저장해주세요.
+    // ex) A병원장례식장.json, B병원장례식장.json ...
+    
+    // 이곳에 작성해주세요.
+    for await(let file of fileList){
+        const fileName = file.companyname
+        const fileData = {
+            "장례식장 타입" : file.managed_type,
+            "주소" : file.address
+        }
+        const filePath = `./parlors/${fileName}.json`
+    
+        await Bun.write(filePath, JSON.stringify(fileData))
+    }
+    
+    // 5. 개별 json 리스트 출력
+    // utils의 getFiles를 사용해, parlors 디렉토리의 분리된 개별 장례식장.json 목록을 불러와주세요.
+    // 불러온 목록을 console에 출력해주세요.
+    // 콘솔에 parlors 장례식장 분할된 json 5개가 출력되면 통과입니다.
+    
+    // 이곳에 작성해주세요.
+    const paths = await getFiles('./parlors')
+    
+    console.log(paths);
+    
+    console.log("End");
+    ```
+    
+
+### directories
+
+```tsx
+
+├── README.md
+├── bun.lockb
+├── constants
+│   └── test-parlors.json
+├── index.ts
+├── node_modules
+├── package.json
+├── parlors
+│   ├── A병원장례식장.json
+│   ├── B병원장례식장.json
+│   ├── C장례식장.json
+│   ├── D병원장례식장.json
+│   └── E장례식장.json
+├── tsconfig.json
+└── utils
+    └── getFiles.ts
+
+22 directories, 126 files
+```
+
 ---
 
 # 3번 과제

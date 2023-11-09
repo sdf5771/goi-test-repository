@@ -7,6 +7,7 @@ console.log("Start");
 
 const path = "./constants/test-parlors.json";
 // 이곳에 작성해주세요.
+let originalFile = Bun.file(path);
 
 
 // 2. 파일 존재 여부 확인
@@ -15,6 +16,9 @@ const path = "./constants/test-parlors.json";
 
 
 // 이곳에 작성해주세요.
+if(originalFile.size === 0){
+    console.log('파일이 없습니다.')
+}
 
 
 
@@ -23,6 +27,7 @@ const path = "./constants/test-parlors.json";
 
 
 // 이곳에 작성해주세요.
+const fileList = await originalFile.json()
 
 
 
@@ -42,8 +47,16 @@ const path = "./constants/test-parlors.json";
 
 
 // 이곳에 작성해주세요.
+for await(let file of fileList){
+    const fileName = file.companyname
+    const fileData = {
+        "장례식장 타입" : file.managed_type,
+        "주소" : file.address
+    }
+    const filePath = `./parlors/${fileName}.json`
 
-
+    await Bun.write(filePath, JSON.stringify(fileData))
+}
 
 
 // 5. 개별 json 리스트 출력
@@ -52,10 +65,8 @@ const path = "./constants/test-parlors.json";
 // 콘솔에 parlors 장례식장 분할된 json 5개가 출력되면 통과입니다.
 
 
-
-
 // 이곳에 작성해주세요.
-const paths = 
+const paths = await getFiles('./parlors')
 
 
 

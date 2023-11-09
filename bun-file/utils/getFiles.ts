@@ -10,4 +10,3 @@ export async function getFiles(directoryPath: string) {
     console.error(err);
   }
 }
-​
