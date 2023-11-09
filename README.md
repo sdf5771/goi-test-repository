@@ -4,10 +4,41 @@ dev.김섭우
 # 사용한 툴
 
 - Visual Studio Code - 코드 에디터
+- Pycharm - 코드 에디터
 - Github Desktop - 깃 리포지토리 관리
 - SourceTree - 깃 리포지토리 관리 및 브랜치 병합에 사용
 
 # 1번 과제
+
+### memoir
+
+> 파이썬의 경우 코딩테스트 공부 용도의 문법 정도만 알고 있었던 터라 과제를 통해 간단한 서버 역할을 하는 용도로 사용하기 위해 조사하거나, 
+> 동적으로 1부터 99까지의 순우리말과 한자어를 만들기 위해 고민하는 등 재미있는 경험이였습니다.
+> 
+
+### 결과
+
+![Untitled](./readme-assets/1_1.gif)
+
+### 실행
+
+- path: goi-test-repository/py-server
+
+```tsx
+// 서버 실행
+python main.py 8000 // 포트 번호는 동적으로 할당 가능
+
+// 클라이언트 명렁
+curl http://localhost:8000/1 // 파라미터는 1 부터 99까지 할당 가능
+```
+
+### Server - Request
+
+![Untitled](./readme-assets/1_2.png)
+
+### Client - Response
+
+![Untitled](./readme-assets/1_3.png)
 
 # 2번 과제
 
