@@ -1,33 +1,25 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
-import React from 'react';
-import getSearchResult from '../queries/getSearchResult';
+import React, {useEffect} from 'react';
 
-function useInfiniteScroll({inputVal}: {inputVal: string}){
-    const {
-        data,
-        fetchNextPage,
-        fetchPreviousPage,
-        hasNextPage,
-        hasPreviousPage,
-        isFetchingNextPage,
-        isFetchingPreviousPage,
-      } = useInfiniteQuery({
-        queryKey: ['searchData', inputVal],
-        queryFn: ({ pageParam }) => getSearchResult({searchKeyword: inputVal, pageParam}),
-        initialPageParam: 1,
-        getNextPageParam: (lastPage: {count: number, next: null | string, previous: null | string, results: []}) => {
-            if (lastPage && lastPage.next){
-                const url = lastPage.next
-                const urlParams = new URLSearchParams(new URL(url).search);
-                const page = urlParams.get("page");
+type Tprops = {
+    targetRef: React.MutableRefObject<HTMLDivElement> | React.MutableRefObject<null>,
+    callback: IntersectionObserverCallback
+}
 
-                return Number(page)
-            }
-            return null
+function useInfiniteScroll({targetRef, callback}: Tprops){
+    useEffect(() => {
+        let observer;
+
+        if(targetRef && targetRef.current){
+            observer = new IntersectionObserver(callback, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 1.0
+            })
+            observer.observe(targetRef.current)
         }
-    })
 
-    return {data, fetchNextPage}
+        return () => observer && observer.disconnect();
+    }, [targetRef])
 }
 
 export default useInfiniteScroll;
